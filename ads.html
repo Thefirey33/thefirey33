@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1 class="fontclass">PROVE THAT YOU DISLIKE ADS!</h1>
+    <button class="buttonclass" onclick="createQuestion()">Load next question..</button>
+    <div id="loader"></div>
+
+</body>
+<script>
+    class QuestionClass{
+        text = ""
+        answer1 = ""
+        answer2 = ""
+        answer3 = ""
+        correctanswer = 0
+    }
+    currentquestion = 0
+    list = []
+    correctanswer = 0
+    wronganswers = 0
+    function onLoad()
+    {
+        questions = ["Why do ads often exploit psychological vulnerabilities, manipulating emotions to drive consumer behavior?","In what ways do intrusive ads invade personal privacy, collecting and leveraging user data without explicit consent?","How do deceptive advertising practices contribute to false expectations, leading to dissatisfaction and disappointment among consumers?","Why are aggressive online ads responsible for creating a cluttered and distracting digital environment?","How do ads perpetuate harmful stereotypes and reinforce societal biases, influencing perceptions and reinforcing inequality?"]
+        answers = ["To promote mental health awareness","To encourage informed decision-making","To manipulate emotions and drive consumer behavior","By collecting and leveraging user data without explicit consent","By promoting user-friendly experiences"," By respecting user consent and preferences","By fostering transparency and honesty","By creating false expectations and leading to dissatisfaction","By promoting fair competition","By contributing to a cluttered and distracting digital environment","By enhancing user experience and engagement","By supporting minimalist design principles","By promoting diversity and inclusion","By challenging societal norms","By influencing perceptions and reinforcing inequality"]
+        correctanswers = [3,1,2,1,3,3]
+        for(var i = 0;i<5;i++)
+        {
+        list[i] = {};
+        list[i].text = questions[i]
+        }
+        var i2 = 0
+        for(var i = 0;i<5;i++)
+        {
+            list[i].answer1 = answers[i2]
+            list[i].answer2 = answers[i2+1]
+            list[i].answer3 = answers[i2+2]
+            i2+=3
+        }
+        console.log(list[0])
+    }
+    function createQuestion()
+    {
+        try
+        {
+            console.log(document.getElementById("answer1").checked,document.getElementById("answer2").checked,document.getElementById("answer3").checked)
+            console.log(correctanswers[currentquestion - 1])
+        if(document.getElementById("answer1").checked && correctanswers[currentquestion - 1] == 1)
+        {
+            correctanswer++;
+        } else if(document.getElementById("answer2").checked && correctanswers[currentquestion - 1] == 2)
+        {
+            correctanswer++;
+        } else if(document.getElementById("answer3").checked && correctanswers[currentquestion - 1] == 3)
+        {
+            correctanswer++;
+        } else {
+            wronganswers++;
+        }
+        }catch{
+        console.log("oops")
+        }
+        console.log(correctanswer,wronganswers)
+        if(currentquestion<5)
+        document.getElementById("loader").innerHTML ="<br><a>"+list[currentquestion].text+"</a><br><br><input id=answer1 type=checkbox checked>"+list[currentquestion].answer1+"</input><br><br><input id=answer2 type=checkbox>"+list[currentquestion].answer2+"</input><br><br><input id=answer3 type=checkbox>"+list[currentquestion].answer3;
+        else
+        {
+        var calculate = (wronganswers*40-(correctanswer*40))/2
+        document.getElementById("loader").innerHTML = "<a>you love crapitalism by "+calculate+"% </a>" 
+        }
+        currentquestion++;
+    }
+    onLoad()
+</script>
+<style>
+    body
+    {
+        background-color: rgb(238, 238, 238);
+    }
+    .fontclass{
+        font-family: sans-serif;
+        border: color(srgb rgb(255, 255, 255) rgb(25rgb(255, 255, 255)55, 255) blue);
+        color: black;
+    }
+    .buttonclass{
+        background-color: white;
+    }
+</style>
+</html>
