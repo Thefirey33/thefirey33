@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="main.css">
+</head>
+<html>
+    <audio src="justcantgetenough.mp3" id="audioSystem"></audio>
+    <body>
+    <div class="UpperBar">
+        <h1 class="MainFont">Welcome to THEFIREY33's website.</h1>
+    </div>
+    <div class="panel">
+        <button class="InteractibleObj" onclick="playaudio()">Turn that heat up broder.<button class="InteractibleObj" onclick="LocationChange('ad.mp4',false)">Play a fake ad</button></button>
+        <form>
+            <h2 class="Font">Submit video idea</h2>
+            <input type="text" class="InteractibleObj">
+            <input type="submit" class="InteractibleObj">
+        </form>
+        <div class="funnyface"><h1 style="display:flex;position:fixed;font-family: sans-serif;margin: 2% 30%;">MAKE DARKER HAS BEEN RELEASED!</h1></div>
+        <button class="InteractibleObj" style="width: 100%;" onclick="download()">Download Immediately</button>
+    <div class="panelBorder" style="margin: 2% 0%;">
+        <h1 class="MainFont" style="margin:0% 2%">Social Media Links..</h1>
+        <button class="InteractibleObj" style="width: 100%;margin: 0.5% 0%;" onclick="LocationChange('reddit.com/user/thefirey33',true)">Reddit</button>
+        <button class="InteractibleObj" style="width: 100%;margin: 0.5% 0%;" onclick="LocationChange('github.com/Thefirey33',true)">Github</button>
+        <button class="InteractibleObj" style="width: 100%;margin: 0.5% 0%;" onclick="LocationChange('scratch.mit.edu/users/wer333',true)">Scratch</button>
+    </div>
+    <button class="InteractibleObj" style="width: 100%;" onclick="generate()">Generate a Fart Joke.</button>
+    <h1 style="font-family: sans-serif; color:white;" id="joke">generated fart jokes will be here ;)</h1>
+    </div>
+    </body>
+</html>
+<script>
+    generateticks = 0;
+    function generate()
+    {
+        generateticks++;
+        var jokeybokey = document.getElementById("joke")
+        if (generateticks==1)
+        {
+            jokeybokey.innerHTML="you are immature."
+        } else if (generateticks==2)
+        {
+            jokeybokey.innerHTML="no not going to work"
+        } if (generateticks==3)
+        {
+            jokeybokey.innerHTML="do it one more time.. you are out of here"
+        }if (generateticks>4)
+        {
+            document.write("go get a job.")
+            wind = window.open("https://jobs.com")
+        }
+    }
+    function playaudio(){
+    audio = document.getElementById("audioSystem")
+    audio.play();
+    }
+    function LocationChange(str,http)
+    {
+        if (http)
+        document.location = "https://"+str;
+        else
+         document.location = str;
+    }
+    function download()
+    {
+        window.location = "https://drive.google.com/uc?export=download&id=1Dg7SM77mLEUEI2fYV8d4wawvX6GtyGG9";
+    }
+</script>
