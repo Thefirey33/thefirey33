@@ -26,15 +26,35 @@
     <button class="InteractibleObj" style="width: 100%;" onclick="generate()">Generate a Fart Joke.</button>
     <h1 style="font-family: sans-serif; color:white;" id="joke">generated fart jokes will be here ;)</h1>
     <button class="InteractibleObj" style="width: 100%;" onclick="PlayGame()">PROVE THAT YOU HATE ADS!</button>
-    </div>
     </body>
-    <div id="GAMEHANDLER">
-
-    </div>
     <button class="InteractibleObj" style="width: 100%;"  onclick="LocationChange('FakeAd.fla',false)">Fake Ad's fla file.</button>
+    <img height="200" width="200" style="left:40%;position: relative;display: flex;width: max-content;" id="ImagePanel" draggable="false"></img>
+    <a class="Font" style="left:40%;position: relative" id="Lol"> Loaded Image: NONE!</a>
+    <br>
+    <button class="InteractibleObj" style="left:40%;position: relative;" onclick="LoadNextImage()">Load Next Image</button>
+    <br>
+    <a class="Font">Drawing sound credit on FreeSound.org, Razzvio created it.</a>
+    <br>
+    <a class="Font" style="color: red;">WARNING! THESE CONTAIN VERY OLD ARTSTYLES! Beware of cringe.</a>
+    <div id="GAMEHANDLER">
+    </div>
+</div>
 </html>
 <script>
     generateticks = 0;
+    currentImage = 0
+    urlBase = location.href.substring(0, location.href.lastIndexOf("/")+1)
+    var ImagePanel = document.getElementById("ImagePanel")
+    var Lol = document.getElementById("Lol")
+    console.log(urlBase+"Good Drawings/"+currentImage+".png")
+    function LoadNextImage()
+    {
+        currentImage = (currentImage + 1) % 40;
+        ImagePanel.src = urlBase+"Good Drawings/"+currentImage+".png"
+        Lol.innerHTML = "Loaded Image:"+currentImage+".png"
+        s = new Audio(urlBase+"Good Drawings/draw.wav")
+        s.play()
+    }
     function generate()
     {
         generateticks++;
